@@ -44,3 +44,5 @@ gem 'unicorn'
 # my gems start here
 
 gem 'nokogiri'
+gem 'activeadmin', github: 'gregbell/active_admin' # Rails 4 activeadmin
+gem 'haml' # I like haml
