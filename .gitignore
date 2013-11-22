@@ -17,3 +17,6 @@
 
 # Ignore database config
 config/database.yml
+
+# Ignore scripts
+episode_scripts
