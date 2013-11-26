@@ -1,3 +1,3 @@
 class Episode < ActiveRecord::Base
-  has_many :lines, :order => :position
+  has_many :scenes, :order => :position
 end
