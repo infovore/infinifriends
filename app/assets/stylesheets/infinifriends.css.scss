@@ -1,0 +1,18 @@
+
+.script {
+  font-family: monospace;
+  width: 600px;
+  .scene {
+    margin: 0 0 30px;
+  }
+  dl {
+    dt.char {
+      text-align: center;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    dd {
+      margin: 0 0 10px;
+    }
+  }
+}

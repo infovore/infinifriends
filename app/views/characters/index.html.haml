@@ -1,0 +1,8 @@
+%h1 Characters
+
+%ul
+  - for character in @characters
+    %li
+      = link_to character.name, character
+      [#{character.lines.size}]
+

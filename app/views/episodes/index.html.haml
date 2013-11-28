@@ -1,0 +1,14 @@
+%h1 Infinifriends
+
+%ul
+  - for episode in @episodes
+    %li= link_to episode.title, episode
+
+%h2 Characters
+
+%ul
+  - for character in @characters
+    %li
+      = link_to character.name, character
+      [#{character.lines.size}]
+

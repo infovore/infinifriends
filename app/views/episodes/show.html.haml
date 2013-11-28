@@ -1,0 +1,19 @@
+%h1= @episode.title
+
+%p= link_to "Back to all episodes", root_path
+
+.script
+  - for scene in @episode.scenes
+    .scene
+      %h2= scene.description
+
+      %dl
+        - for line in scene.lines
+          - if line.line_type == "line"
+            %dt.char= line.character.name
+            %dd= line.content
+          - else
+            %dt.dir= line.content
+      
+%p= link_to "Back to all episodes", root_path
+

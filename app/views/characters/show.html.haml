@@ -1,0 +1,26 @@
+%h1= @character.name
+
+%h2 Appears in
+
+%ul
+  - for episode in @character.episodes
+    %li= link_to episode.title, episode
+
+%h2 Lines
+
+%table
+  %thead
+    %tr
+      %th Episode
+      %th Scene
+      %th Line
+      %th Text
+  %tbody
+    - for line in @character.lines
+      %tr
+        %td= line.scene.episode.title
+        %td= line.scene.position
+        %td= line.position
+        %td= line.content
+
+
