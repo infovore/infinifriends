@@ -1,9 +1,11 @@
-%h1= @episode.title
+%h1
+  Mirroring
+  = @episode.title
 
 %p
   = link_to "Back to all episodes", root_path
   |
-  = link_to "Mirror this episode", episode_mirror_path(@episode)
+  = link_to "View original", @episode
 
 .script
   - for scene in @episode.scenes
@@ -14,9 +16,8 @@
         - for line in scene.lines
           - if line.line_type == "line"
             %dt.char= line.character.name
-            %dd= line.content
+            - char = @characters.find {|c| c.name == line.character.name}
+            %dd= char.generate_sentences(line.sentence_count)
           - else
             %dt.dir= line.content
-      
-%p= link_to "Back to all episodes", root_path
-
+    

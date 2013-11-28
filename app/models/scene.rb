@@ -11,4 +11,8 @@ class Scene < ActiveRecord::Base
       Line.create_from_processed_line_for_scene_in_position(line,s,count)
     end
   end
+
+  def characters
+    lines.select {|l| l.character}.map {|l| l.character}.uniq
+  end
 end

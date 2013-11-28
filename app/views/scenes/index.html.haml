@@ -1,0 +1,17 @@
+%h1 Scenes
+
+%table
+  %thead
+    %tr
+      %th Episode
+      %th Scene #
+      %th Description
+      %th Characters
+  %tbody
+    - for scene in @scenes
+      %tr
+        %td= scene.episode.title
+        %td= scene.position
+        %td= link_to scene.description, scene
+        %td= scene.lines.select {|l| l.character}.map {|l| l.character.try(:name) }.uniq.to_sentence
+

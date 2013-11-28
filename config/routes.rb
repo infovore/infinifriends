@@ -1,6 +1,11 @@
 Infinifriends::Application.routes.draw do
-  resources :episodes
+  resources :episodes do
+    get 'mirror'
+  end
   resources :characters
+  resources :scenes do
+    get 'mirror'
+  end
   root 'episodes#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

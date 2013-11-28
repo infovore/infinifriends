@@ -1,0 +1,21 @@
+%h1= @scene.description
+
+%p
+  = link_to "Back to all scenes", scenes_path
+  |
+  = link_to "View this episode", @scene.episode
+  |
+  = link_to "Mirror this scene", scene_mirror_path(@scene)
+
+.script
+  .scene
+    %h2= @scene.description
+
+    %dl
+      - for line in @scene.lines
+        - if line.line_type == "line"
+          %dt.char= line.character.name
+          %dd= line.content
+        - else
+          %dt.dir= line.content
+    

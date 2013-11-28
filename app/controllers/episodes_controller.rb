@@ -5,6 +5,11 @@ class EpisodesController < ApplicationController
   end
 
   def show
-    @episode = Episode.find(params[:id])
+    @episode = Episode.find(params[:id], :include => {:scenes => :lines})
+  end
+
+  def mirror
+    @episode = Episode.includes(:scenes => :lines).joins(:scenes => :lines).find(params[:episode_id])
+    @characters = @episode.characters
   end
 end

@@ -1,8 +1,17 @@
 %h1 Infinifriends
 
 %ul
+  %li= link_to "Scenes", scenes_path
+  %li= link_to "Episodes", episodes_path
+  %li= link_to "Characters", characters_path
+
+%hr
+
+%ul
   - for episode in @episodes
     %li= link_to episode.title, episode
+
+%hr
 
 %h2 Characters
 

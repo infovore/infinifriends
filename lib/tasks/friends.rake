@@ -2,6 +2,7 @@ namespace :friends do
   desc "Ingest all scripts in episode_scripts"
   task :ingest_all => :environment do
     files = Dir['episode_scripts/*.htm']
+    files = files[0,10]
     files.each do |file|
       filename = File.basename(file).gsub(".htm", "")
 

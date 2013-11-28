@@ -1,5 +1,9 @@
 %h1= @character.name
 
+%h2 3 generated sentences from #{@character.name}
+
+%p= @character.generate_sentences(3)
+
 %h2 Appears in
 
 %ul

@@ -2,6 +2,10 @@ class Line < ActiveRecord::Base
   belongs_to :scene
   belongs_to :character
 
+  def sentence_count
+    content.split(". ").size
+  end
+
   def self.create_from_processed_line_for_scene_in_position(line,scene,position)
     if line[:type] == :line
       character = Character.find_or_create_by_name(line[:character])
@@ -16,5 +20,9 @@ class Line < ActiveRecord::Base
                 :scene_id => scene.id,
                 :content => line[:content])
 
+  end
+
+  def self.strip_directions(line)
+    line.gsub(/(\(.+?\))/, "")
   end
 end
