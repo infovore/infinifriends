@@ -43,14 +43,17 @@ class ScriptProcessor
   end
 
   def self.tidy_scene_heading(text)
-    text.to_s.gsub(/\[|\]/,"").gsub("Scene:", "").gsub(/\n/, " ").strip
+    out = text.to_s.gsub(/\[|\]/,"").gsub("Scene:", "").gsub(/\n/, " ").strip
+    out.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
   end
 
   def self.tidy_direction(text)
-    text.to_s.gsub(/\[|\]/,"")
+    out = text.to_s.gsub(/\[|\]/,"")
+    out.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
   end
 
   def self.tidy_line_for_character(text, character)
-    text.gsub("#{character}:", "").gsub(/\n/, " ").strip
+    out = text.gsub("#{character}:", "").gsub(/\n/, " ").strip
+    out.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '')
   end
 end
