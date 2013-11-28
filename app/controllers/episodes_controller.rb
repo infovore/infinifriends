@@ -8,8 +8,13 @@ class EpisodesController < ApplicationController
     @episode = Episode.find(params[:id], :include => {:scenes => :lines})
   end
 
+  def random
+    @episode = Episode.limit(1).order("RANDOM()").limit(1).first
+    @characters = @episode.characters
+  end
+
   def mirror
-    @episode = Episode.includes(:scenes => :lines).joins(:scenes => :lines).find(params[:episode_id])
+    @episode =  Episode.find(params[:episode_id])
     @characters = @episode.characters
   end
 end

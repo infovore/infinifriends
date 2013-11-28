@@ -1,6 +1,11 @@
 Infinifriends::Application.routes.draw do
   resources :episodes do
-    get 'mirror'
+    member do
+      get 'mirror'
+    end
+    collection do
+      get 'random'
+    end
   end
   resources :characters
   resources :scenes do
