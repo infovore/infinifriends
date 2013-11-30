@@ -1,5 +1,7 @@
 %h1 Scenes
 
+%p= link_to "MAKE A RANDOM SCENE", random_scenes_path
+
 %table
   %thead
     %tr
@@ -13,5 +15,5 @@
         %td= scene.episode.title
         %td= scene.position
         %td= link_to scene.description, scene
-        %td= scene.lines.select {|l| l.character}.map {|l| l.character.try(:name) }.uniq.to_sentence
+        %td= scene.characters.map {|c| c.name}.to_sentence
 

@@ -1,0 +1,20 @@
+%h1 INFINIFRIENDS
+
+%p
+  = link_to "Back to all scenes", scenes_path
+  |
+  = link_to "View the template for this new scene", @scene
+
+.script
+  .scene
+    %h2= @scene.description
+
+    %dl
+      - for line in @scene.lines
+        - if line.line_type == "line"
+          %dt.char= line.character.name
+          - char = @characters.find {|c| c.name == line.character.name}
+          %dd= char.generate_sentences(line.sentence_count)
+        - else
+          %dt.dir= line.content
+  

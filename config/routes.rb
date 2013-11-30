@@ -9,7 +9,12 @@ Infinifriends::Application.routes.draw do
   end
   resources :characters
   resources :scenes do
-    get 'mirror'
+    member do
+      get 'mirror'
+    end
+    collection do
+      get 'random'
+    end
   end
   root 'episodes#index'
   # The priority is based upon order of creation: first created -> highest priority.

@@ -9,7 +9,7 @@ class EpisodesController < ApplicationController
   end
 
   def random
-    @episode = Episode.limit(1).order("RANDOM()").limit(1).first
+    @episode = Episode.order("RANDOM()").limit(1).first
     @characters = @episode.characters
   end
 
