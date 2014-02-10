@@ -14,7 +14,7 @@ class EpisodesController < ApplicationController
   end
 
   def mirror
-    @episode =  Episode.find(params[:episode_id])
+    @episode =  Episode.find(params[:id])
     @characters = @episode.characters
   end
 end
